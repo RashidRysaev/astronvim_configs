@@ -9,15 +9,22 @@ return {
     -- second key is the lefthand side of the map
 
     -- navigate buffer tabs with `H` and `L`
-    -- L = {
-    --   function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
-    --   desc = "Next buffer",
-    -- },
-    -- H = {
-    --   function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
-    --   desc = "Previous buffer",
-    -- },
+    L = {
+      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Next buffer",
+    },
+    H = {
+      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+      desc = "Previous buffer",
+    },
 
+    
+    -- ["<C-j>"] = { "<cmd>:m +1<cr>", desc = "Move one line down" }, 
+    -- ["<C-k>"] = { "<cmd>:m --1<cr>", desc = "Move one line up" },
+   
+    ["<C-j>"] = { "<cmd>:m .+1<cr>==", desc = "Move one line down" }, 
+    ["<C-k>"] = { "<cmd>:m .-2<cr>==", desc = "Move one line up" },
+     
     -- mappings seen under group name "Buffer"
     ["<leader>bD"] = {
       function()
@@ -32,6 +39,13 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+  },
+  v = {
+    ["<C-j>"] = { "<cmd>:m '>+1<cr>gv==gv", desc = "Move one line down" }, 
+    ["<C-k>"] = { "<cmd>:m '<-2<cr>gv==gv", desc = "Move one line up" },
+
+    -- ["<C-j>"] = { "<cmd>:m .+1<cr>gv=gv", desc = "Move one line down" },  
+    -- ["<C-k>"] = { "<cmd>:m .-2<cr>gv=gv", desc = "Move one line up" },  
   },
   t = {
     -- setting a mapping to false will disable it
