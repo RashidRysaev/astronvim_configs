@@ -17,11 +17,7 @@ return {
       function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
       desc = "Previous buffer",
     },
-
     
-    -- ["<C-j>"] = { "<cmd>:m +1<cr>", desc = "Move one line down" }, 
-    -- ["<C-k>"] = { "<cmd>:m --1<cr>", desc = "Move one line up" },
-   
     ["<C-j>"] = { "<cmd>:m .+1<cr>==", desc = "Move one line down" }, 
     ["<C-k>"] = { "<cmd>:m .-2<cr>==", desc = "Move one line up" },
      
@@ -43,9 +39,6 @@ return {
   v = {
     ["<C-j>"] = { "<cmd>:m '>+1<cr>gv==gv", desc = "Move one line down" }, 
     ["<C-k>"] = { "<cmd>:m '<-2<cr>gv==gv", desc = "Move one line up" },
-
-    -- ["<C-j>"] = { "<cmd>:m .+1<cr>gv=gv", desc = "Move one line down" },  
-    -- ["<C-k>"] = { "<cmd>:m .-2<cr>gv=gv", desc = "Move one line up" },  
   },
   t = {
     -- setting a mapping to false will disable it
